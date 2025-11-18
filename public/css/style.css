@@ -1,0 +1,176 @@
+:root {
+  --red: #b00020;
+  --red-dark: #8a0018;
+  --red-light: #ff4b6e;
+}
+
+/* Efek transisi antar halaman */
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+body.fade-in {
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* Tampilan dasar */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffffff, #f9f1f1);
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar */
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  animation: fadeDown 0.8s ease-in-out;
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card */
+.card-soft {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(176,0,32,0.1);
+  transition: all 0.4s ease;
+  animation: fadeUp 0.8s ease-in-out;
+}
+.card-soft:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 26px rgba(176,0,32,0.15);
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 1px solid #eee;
+  animation: fadeUp 0.8s ease-in-out;
+}
+
+/* Tombol Interaktif */
+.btn-red {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(176,0,32,0.25);
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+}
+.btn-red:hover {
+  transform: scale(1.07);
+  background: linear-gradient(135deg, var(--red-light), var(--red));
+  box-shadow: 0 6px 20px rgba(255,75,110,0.4);
+  color: #fff;
+}
+.btn-red:active {
+  transform: scale(0.93);
+  box-shadow: 0 2px 8px rgba(176,0,32,0.25);
+}
+/* Cahaya berjalan */
+.btn-red::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.25), rgba(255,255,255,0));
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+.btn-red:hover::before {
+  left: 130%;
+}
+/* Efek parallax lembut pada latar */
+.bg-parallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at center, rgba(176,0,32,0.05), transparent 70%);
+  z-index: -1;
+  transition: transform 0.3s ease-out;
+  pointer-events: none;
+}
+/* Tombol utama versi baru */
+.btn-red {
+  background: linear-gradient(135deg, #b00020, #8a0018);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 18px rgba(176, 0, 32, 0.25);
+}
+
+/* Efek hover */
+.btn-red:hover {
+  background: linear-gradient(135deg, #ff4b6e, #b00020);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 25px rgba(255, 75, 110, 0.4);
+}
+
+/* Efek klik (pop) */
+.btn-red:active {
+  transform: scale(0.96);
+  box-shadow: 0 3px 10px rgba(176, 0, 32, 0.25);
+}
+
+/* Efek cahaya bergerak */
+.btn-red::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+.btn-red:hover::before {
+  left: 130%;
+}
+
+/* Efek ripple klik */
+.btn-red .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  background: rgba(255, 255, 255, 0.6);
+}
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
